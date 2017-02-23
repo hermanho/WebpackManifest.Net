@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
 
-namespace WebpackManifestFileProvider
+namespace WebpackManifest.Net
 {
     public class WebpackManifestFileProvider : IFileProvider, IDisposable
     {

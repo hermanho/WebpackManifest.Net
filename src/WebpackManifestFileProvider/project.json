@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0-*",
+  "version": "1.2.0-*",
 
   "dependencies": {
     "Microsoft.Extensions.FileProviders.Physical": "1.1.0",
@@ -11,11 +11,19 @@
   "frameworks": {
     "net461": {
 
-    },    
+    },
     "netstandard1.3": {
       "dependencies": {
         "System.Threading.Thread": "4.3.0-*",
         "System.IO.FileSystem.Watcher": "4.3.0-*"
+      }
+    },
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
       }
     }
   }
