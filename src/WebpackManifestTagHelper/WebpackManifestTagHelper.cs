@@ -125,9 +125,13 @@ namespace WebpackManifest.Net
                     {
                         _logger.LogInformation($"Replacing {attribute.Name}:{stringValue} to {_webpackManifestMapping[stringValue]} (stringValue)");
                         output.Attributes[i] = new TagHelperAttribute(
-                       attribute.Name,
-                       _webpackManifestMapping[stringValue],
-                       attribute.ValueStyle);
+                            attribute.Name,
+                            _webpackManifestMapping[stringValue],
+                            attribute.ValueStyle);
+                    }
+                    else
+                    {
+                        _logger.LogInformation($"Cannot find the mapping for {attribute.Name}:{stringValue} (stringValue)");
                     }
                 }
                 else
@@ -154,12 +158,13 @@ namespace WebpackManifest.Net
                         {
                             _logger.LogInformation($"Replacing {attribute.Name}:{stringValue} to {_webpackManifestMapping[stringValue]} (IHtmlContent)");
                             output.Attributes[i] = new TagHelperAttribute(
-                            attribute.Name,
-                            _webpackManifestMapping[stringValue],
-                            attribute.ValueStyle);
+                                attribute.Name,
+                                _webpackManifestMapping[stringValue],
+                                attribute.ValueStyle);
                         }
-                        else if (htmlString == null)
+                        else
                         {
+                            _logger.LogInformation($"Cannot find the mapping for {attribute.Name}:{stringValue} (IHtmlContent)");
                             // Not a ~/ URL. Just avoid re-encoding the attribute value later.
                             output.Attributes[i] = new TagHelperAttribute(
                                 attribute.Name,

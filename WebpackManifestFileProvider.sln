@@ -1,18 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebpackManifestFileProvider", "src\WebpackManifestFileProvider\WebpackManifestFileProvider.xproj", "{4FF1FD39-DAD1-4B6E-8D23-D68118F671AD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{231508BA-FB16-4398-9DBF-5EA62E477896}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D60E63CD-DC95-4127-8C50-6D4C61FE4A65}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebpackManifestTagHelper", "src\WebpackManifestTagHelper\WebpackManifestTagHelper.xproj", "{53345E34-D7B6-4FAD-B2A4-A7E11DA984CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackManifestFileProvider", "src\WebpackManifestFileProvider\WebpackManifestFileProvider.csproj", "{4FF1FD39-DAD1-4B6E-8D23-D68118F671AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackManifestTagHelper", "src\WebpackManifestTagHelper\WebpackManifestTagHelper.csproj", "{53345E34-D7B6-4FAD-B2A4-A7E11DA984CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
