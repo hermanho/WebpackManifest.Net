@@ -9,6 +9,7 @@
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">1.1.1</RuntimeFrameworkVersion>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.1' ">1.1.1</RuntimeFrameworkVersion>
     <IncludeSymbols>true</IncludeSymbols>
+    <Version>1.2.4</Version>
   </PropertyGroup>
 
   <ItemGroup>

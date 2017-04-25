@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace WebpackManifest.Net
 {
@@ -62,12 +64,16 @@ namespace WebpackManifest.Net
         {
             _logger = logger;
             _webpackManifestPath = Path.Combine(env.WebRootPath, "manifest.json");
-            _logger.LogInformation($"Loading file {_webpackManifestPath}");
-            LoadMapping();
         }
 
         [HtmlAttributeName(ManifestAttributeName)]
         public bool? ManifestLoopup { get; set; }
+        
+        public override void Init(TagHelperContext context)
+        {
+            _logger.LogInformation($"Loading file {_webpackManifestPath}");
+            LoadMapping();
+        }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -195,7 +201,11 @@ namespace WebpackManifest.Net
                                 _logger.LogInformation($"JSON read completed");
                                 foreach (KeyValuePair<string, JToken> node in jsonObject)
                                 {
-                                    newMap.Add('/' + node.Key, '/' + node.Value.Value<string>());
+                                    var k = "~/" + node.Key;
+                                    var v = "~/" + node.Value.Value<string>();
+                                    TryResolveUrl(k, resolvedUrl: out k);
+                                    TryResolveUrl(v, resolvedUrl: out v);
+                                    newMap.Add(k, v);
                                 }
                                 _webpackManifestMapping = newMap;
                             }
